@@ -1,9 +1,9 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const OptimizePlugin = require("optimize-plugin");
 
 module.exports = {
     mode: "development",
+    entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js",
@@ -14,23 +14,30 @@ module.exports = {
             react: path.join(__dirname, "node_modules", "react"),
         },
     },
+    devtool: "source-map",
     module: {
         rules: [
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                },
+            },
             {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: "style-loader"
+                        loader: "style-loader",
                     },
                     {
-                        loader: "css-loader"
+                        loader: "css-loader",
                     },
                 ]
             },
         ]
     },
     plugins: [
-        new OptimizePlugin(),
         new HtmlWebpackPlugin({ template: "./src/index.html" }),
     ],
 };
