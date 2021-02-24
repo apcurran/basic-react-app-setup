@@ -13,12 +13,14 @@ module.exports = {
         alias: {
             react: path.join(__dirname, "node_modules", "react"),
         },
+        symlinks: false,
     },
     devtool: "source-map",
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
+                include: path.resolve(__dirname, "src"),
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
