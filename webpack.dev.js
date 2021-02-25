@@ -13,9 +13,8 @@ module.exports = {
         alias: {
             react: path.join(__dirname, "node_modules", "react"),
         },
-        symlinks: false,
     },
-    devtool: "source-map",
+    devtool: "inline-source-map",
     module: {
         rules: [
             {
