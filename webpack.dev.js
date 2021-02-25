@@ -5,7 +5,7 @@ module.exports = {
     mode: "development",
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "build"),
+        path: path.join(__dirname, "build"),
         filename: "bundle.js",
     },
     resolve: {
@@ -19,7 +19,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                include: path.resolve(__dirname, "src"),
+                include: path.join(__dirname, "src"),
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
