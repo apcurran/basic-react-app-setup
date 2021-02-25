@@ -39,6 +39,7 @@ module.exports = {
     ],
     optimization: {
         minimizer: [
+            "...", // Adds terser default back in
             new CssMinimizerPlugin(),
         ]
     }
