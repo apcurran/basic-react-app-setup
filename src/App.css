@@ -1,3 +1,8 @@
-body {
-    background-color: lightgreen;
+body,
+input,
+label,
+textarea,
+::before,
+::after {
+    font-family: sans-serif;
 }
